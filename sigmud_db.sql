@@ -184,7 +184,7 @@ INSERT INTO reclamos (id_ciudadano, tipo, descripcion, fecha_ingreso, estado, id
 (3,'Vía pública en mal estado','Bache profundo en Av. Ayacucho km 2',   '2026-11-10','Recibido',  5);
 
 -- ================================================================
--- VERIFICACIÓN (opcional - descomentar para comprobar)
+-- VERIFICACIÓN 
 -- ================================================================
 -- SELECT 'usuarios' AS tabla, COUNT(*) AS total FROM usuarios
 -- UNION ALL SELECT 'ciudadanos', COUNT(*) FROM ciudadanos

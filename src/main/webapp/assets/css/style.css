@@ -1,0 +1,1383 @@
+
+/* ==========================================================
+   SIGMUD - SISTEMA DE GESTIÓN MUNICIPAL
+   Diseño institucional profesional
+   Color institucional: GUINDA
+========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES INSTITUCIONALES
+========================================================== */
+
+:root {
+    --guinda: #99002E;
+    --guinda-oscuro: #760022;
+    --guinda-claro: #B52A50;
+
+    --fondo: #F4F6F9;
+    --blanco: #FFFFFF;
+    --texto: #343A40;
+    --borde: #E1E5EB;
+
+    --sombra: 0 5px 20px rgba(0,0,0,.07);
+
+    --sidebar-width: 255px;
+}
+
+
+/* ==========================================================
+   2. CONFIGURACIÓN GENERAL
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   3. LOGIN - CONTENEDOR
+========================================================== */
+
+.contenedor-login {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.panel-imagen {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    background-image: url('../img/fondo-login.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    display: none;
+}
+
+
+/* ==========================================================
+   4. LOGIN - FORMULARIO TRANSPARENTE
+========================================================== */
+
+.panel-formulario {
+    position: relative;
+    z-index: 2;
+
+    width: 510px;
+    min-height: 680px;
+    max-height: calc(100vh - 40px);
+
+    padding: 35px 42px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgba(255,255,255,.48);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,.65);
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.20);
+
+    overflow-y: auto;
+}
+
+.logo {
+    display: block;
+
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    margin: 0 auto 5px;
+}
+
+.titulo {
+    text-align: center;
+
+    font-size: 2.8rem;
+    font-weight: 800;
+
+    color: var(--guinda);
+
+    letter-spacing: 1px;
+
+    margin-bottom: 3px;
+}
+
+.subtitulo {
+    text-align: center;
+
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    color: #333;
+
+    margin-bottom: 20px;
+}
+
+.panel-formulario hr {
+    width: 100%;
+    height: 1px;
+
+    border: none;
+
+    background: var(--guinda);
+
+    margin-bottom: 22px;
+}
+
+
+/* ==========================================================
+   5. LOGIN - ETIQUETAS Y CAMPOS
+========================================================== */
+
+.form-label {
+    display: block;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    color: #292929;
+
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 12px 17px;
+
+    font-size: 1rem;
+
+    color: #222;
+
+    background: rgba(255,255,255,.78);
+
+    border: 1px solid rgba(180,180,180,.5);
+
+    border-radius: 30px;
+
+    outline: none;
+
+    transition: all .25s ease;
+}
+
+.form-control:focus {
+    background: rgba(255,255,255,.95);
+
+    border-color: var(--guinda);
+
+    box-shadow: 0 0 0 3px rgba(153,0,46,.13);
+}
+
+.panel-formulario .mb-3 {
+    margin-bottom: 17px !important;
+}
+
+
+/* ==========================================================
+   6. LOGIN - BOTÓN INGRESAR
+========================================================== */
+
+.btn-login {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 2px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: linear-gradient(
+        100deg,
+        var(--guinda),
+        var(--guinda-oscuro)
+    );
+
+    color: #fff;
+
+    font-size: 1.1rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+
+    box-shadow: 0 5px 15px rgba(140,0,40,.20);
+}
+
+.btn-login:hover {
+    background: linear-gradient(
+        100deg,
+        var(--guinda-oscuro),
+        #570019
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(140,0,40,.30);
+}
+
+.btn-login:active {
+    transform: scale(.98);
+}
+
+.alert {
+    border-radius: 12px;
+    font-size: .9rem;
+}
+
+
+/* ==========================================================
+   7. LOGIN - PIE DE PÁGINA
+========================================================== */
+
+.footer-login {
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 28px;
+    padding-top: 17px;
+
+    border-top: 1px solid var(--guinda);
+
+    color: #444;
+
+    font-size: .85rem;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   8. BARRA DE NAVEGACIÓN HORIZONTAL - GUINDA
+========================================================== */
+
+.navbar {
+    background: linear-gradient(
+        100deg,
+        var(--guinda-oscuro),
+        var(--guinda)
+    ) !important;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+
+    padding: 10px 16px;
+}
+
+.navbar .navbar-brand {
+    color: #fff !important;
+    font-weight: 800;
+}
+
+.navbar .nav-link {
+    color: rgba(255,255,255,.88) !important;
+    font-weight: 500;
+
+    transition: .2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff !important;
+}
+
+.navbar .nav-link.active {
+    color: #fff !important;
+    font-weight: 800;
+    border-bottom: 2px solid #fff;
+}
+
+.navbar .navbar-text {
+    color: #fff !important;
+}
+
+.navbar .navbar-toggler {
+    border-color: rgba(255,255,255,.5);
+}
+
+.navbar .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+.navbar .dropdown-menu {
+    border: none;
+    border-radius: 10px;
+
+    box-shadow: var(--sombra);
+
+    padding: 8px;
+}
+
+.navbar .dropdown-item {
+    padding: 9px 13px;
+    border-radius: 6px;
+}
+
+.navbar .dropdown-item:hover {
+    background: #F8E9EE;
+    color: var(--guinda);
+}
+
+.navbar .btn-outline-light:hover {
+    color: var(--guinda);
+}
+
+
+/* ==========================================================
+   9. PANEL PRINCIPAL - CONTENEDOR
+========================================================== */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1600px;
+
+    margin: auto;
+
+    padding: 30px 35px !important;
+}
+
+
+/* ==========================================================
+   10. PANEL PRINCIPAL - ENCABEZADO
+========================================================== */
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+.dashboard-label {
+    color: var(--guinda);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.dashboard-title {
+    color: #26374A;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    margin: 5px 0;
+}
+
+.dashboard-subtitle {
+    color: #718096;
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+.dashboard-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #F8E9EE;
+
+    color: var(--guinda);
+
+    font-size: 25px;
+}
+
+
+/* ==========================================================
+   11. DASHBOARD - TARJETAS GENERALES
+========================================================== */
+
+.dashboard-card {
+    position: relative;
+
+    height: 100%;
+    min-height: 155px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    border: 1px solid rgba(0,0,0,.07);
+
+    box-shadow: var(--sombra);
+
+    transition: all .3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,.15);
+}
+
+.dashboard-card-content {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 20px 15px;
+}
+
+.dashboard-number {
+    display: block;
+
+    font-size: 35px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    color: #fff;
+}
+
+.dashboard-card-content p {
+    margin: 9px 0 0;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #fff;
+}
+
+.dashboard-card-icon {
+    font-size: 43px;
+
+    opacity: .35;
+
+    color: #fff;
+
+    transition: .3s ease;
+}
+
+.dashboard-card:hover .dashboard-card-icon {
+    opacity: .65;
+    transform: scale(1.12);
+}
+
+
+/* ==========================================================
+   12. DASHBOARD - COLORES DE LAS SIETE TARJETAS
+========================================================== */
+
+.card-blue {
+    background: linear-gradient(135deg,#53758F,#34566F);
+}
+
+.card-orange {
+    background: linear-gradient(135deg,#FFBE16,#E99B00);
+}
+
+.card-red {
+    background: linear-gradient(135deg,#E83D4F,#C82333);
+}
+
+.card-cyan {
+    background: linear-gradient(135deg,#19BCD5,#0796B0);
+}
+
+.card-yellow {
+    background: linear-gradient(135deg,#FFF2CC,#F5E5B5);
+}
+
+.card-yellow .dashboard-number,
+.card-yellow .dashboard-card-content p,
+.card-yellow .dashboard-card-icon {
+    color: #343434;
+}
+
+.card-green {
+    background: linear-gradient(135deg,#269969,#13764F);
+}
+
+.card-dark {
+    background: linear-gradient(135deg,#394555,#202A36);
+}
+
+
+/* ==========================================================
+   13. DASHBOARD - ENLACES DE TARJETAS
+========================================================== */
+
+.dashboard-card-link {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 20px;
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    background: rgba(0,0,0,.12);
+
+    border-top: 1px solid rgba(255,255,255,.15);
+
+    transition: .2s ease;
+}
+
+.dashboard-card-link:hover {
+    color: #fff;
+    background: rgba(0,0,0,.22);
+}
+
+.card-yellow .dashboard-card-link {
+    color: #343434;
+    border-top-color: rgba(0,0,0,.12);
+}
+
+
+/* ==========================================================
+   14. DASHBOARD - PIE
+========================================================== */
+
+.dashboard-footer {
+    margin-top: 35px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--borde);
+
+    color: #718096;
+
+    font-size: 12px;
+}
+
+.dashboard-footer i {
+    color: var(--guinda);
+    margin-right: 5px;
+}
+
+
+/* ==========================================================
+   15. ESTILO GENERAL DE TABLAS
+========================================================== */
+
+.table {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: #F8E9EE;
+
+    color: var(--guinda-oscuro);
+
+    font-weight: 700;
+
+    border-bottom: 2px solid var(--guinda);
+
+    padding: 13px;
+    vertical-align: middle;
+}
+
+.table tbody td {
+    padding: 12px;
+
+    vertical-align: middle;
+
+    color: #444;
+}
+
+.table tbody tr:hover {
+    background: #FCF5F7;
+}
+
+.table-responsive {
+    border-radius: 10px;
+}
+
+
+/* ==========================================================
+   16. BOTONES GENERALES
+========================================================== */
+
+.btn-primary {
+    background: var(--guinda);
+    border-color: var(--guinda);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--guinda-oscuro);
+    border-color: var(--guinda-oscuro);
+}
+
+.btn-outline-primary {
+    color: var(--guinda);
+    border-color: var(--guinda);
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background: var(--guinda);
+    border-color: var(--guinda);
+}
+
+
+/* ==========================================================
+   17. FORMULARIOS GENERALES
+========================================================== */
+
+.form-select {
+    border-radius: 8px;
+    min-height: 42px;
+}
+
+.form-select:focus {
+    border-color: var(--guinda);
+    box-shadow: 0 0 0 3px rgba(153,0,46,.12);
+}
+
+form .form-control:not(.panel-formulario .form-control) {
+    border-radius: 8px;
+}
+
+.input-group-text {
+    background: #F8E9EE;
+    color: var(--guinda);
+    border-color: var(--borde);
+}
+
+
+/* ==========================================================
+   18. TARJETAS GENERALES Y CONTENEDORES
+========================================================== */
+
+.card:not(.dashboard-card) {
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+.card:not(.dashboard-card) .card-header {
+    background: #F8E9EE;
+    color: var(--guinda-oscuro);
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   19. MENSAJES Y ALERTAS
+========================================================== */
+
+.alert {
+    border-radius: 10px;
+}
+
+
+/* ==========================================================
+   20. RESPONSIVE - TABLETS
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .contenedor-login {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .panel-formulario {
+        width: 100%;
+        max-width: 480px;
+        min-height: 620px;
+        max-height: none;
+        padding: 35px 30px;
+    }
+
+    .dashboard-container {
+        padding: 22px 18px !important;
+    }
+
+    .dashboard-title {
+        font-size: 24px;
+    }
+}
+
+
+/* ==========================================================
+   21. RESPONSIVE - CELULARES
+========================================================== */
+
+@media (max-width: 500px) {
+
+    .contenedor-login {
+        min-height: 100vh;
+        height: auto;
+        padding: 15px;
+    }
+
+    .panel-formulario {
+        min-height: auto;
+        padding: 30px 22px;
+        border-radius: 20px;
+
+        background: rgba(255,255,255,.72);
+    }
+
+    .logo {
+        width: 95px;
+        height: 95px;
+    }
+
+    .titulo {
+        font-size: 2.1rem;
+    }
+
+    .subtitulo {
+        font-size: .9rem;
+    }
+
+    .form-control {
+        min-height: 48px;
+    }
+
+    .btn-login {
+        height: 54px;
+    }
+
+    .footer-login {
+        font-size: .78rem;
+    }
+
+    .dashboard-container {
+        padding: 18px 12px !important;
+    }
+
+    .dashboard-header {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-title {
+        font-size: 20px;
+    }
+
+    .dashboard-subtitle {
+        font-size: 12px;
+    }
+
+    .dashboard-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 20px;
+    }
+
+    .dashboard-card {
+        min-height: 140px;
+    }
+
+    .dashboard-number {
+        font-size: 29px;
+    }
+
+    .dashboard-card-icon {
+        font-size: 35px;
+    }
+
+    .dashboard-footer {
+        font-size: 11px;
+    }
+}
+
+
+/* ==========================================================
+   22. BARRA LATERAL SIGMUD
+========================================================== */
+
+body:has(.sidebar-sigmud) {
+    padding-left: var(--sidebar-width);
+    background: transparent !important;
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+}
+
+/* Barra lateral */
+
+.sidebar-sigmud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1050;
+
+    width: var(--sidebar-width);
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 22px 15px;
+
+    color: #fff;
+    background: linear-gradient(
+        180deg,
+        #760022 0%,
+        #99002e 55%,
+        #850027 100%
+    );
+
+    box-shadow: 4px 0 18px rgba(0,0,0,.12);
+    overflow-y: auto;
+}
+
+/* Logo y nombre */
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 10px 24px;
+    margin-bottom: 22px;
+
+    color: #fff !important;
+    text-decoration: none;
+
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: .5px;
+
+    border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.sidebar-brand img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+/* Título de sección */
+
+.sidebar-section-title {
+    padding: 0 12px;
+    margin-bottom: 12px;
+
+    color: rgba(255,255,255,.55);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* Menú */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-link,
+.sidebar-group-title,
+.sidebar-sublink {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-height: 45px;
+    padding: 10px 13px;
+
+    color: rgba(255,255,255,.86);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 8px;
+    transition: all .2s ease;
+}
+
+.sidebar-link i,
+.sidebar-group-title i,
+.sidebar-sublink i {
+    width: 20px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.sidebar-link:hover,
+.sidebar-sublink:hover {
+    color: #fff;
+    background: rgba(255,255,255,.14);
+    transform: translateX(3px);
+}
+
+/* Grupo Mercado */
+
+.sidebar-group {
+    margin: 2px 0;
+}
+
+.sidebar-group-title {
+    color: #fff;
+    font-weight: 700;
+}
+
+.sidebar-sublink {
+    min-height: 38px;
+    padding-left: 47px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Zona inferior */
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.18);
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 5px 15px;
+    min-width: 0;
+}
+
+.sidebar-user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,.16);
+    font-size: 19px;
+}
+
+.sidebar-user-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sidebar-user-info strong {
+    overflow: hidden;
+    color: #fff;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-user-info small {
+    color: rgba(255,255,255,.65);
+    font-size: 11px;
+}
+
+.sidebar-logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 8px;
+    transition: .2s ease;
+}
+
+.sidebar-logout:hover {
+    color: #760022;
+    background: #fff;
+}
+
+.sidebar-logout i {
+    font-size: 17px;
+}
+
+
+/* ==========================================================
+   23. FORMULARIOS GENERALES
+========================================================== */
+
+body:has(.sidebar-sigmud) .form-control {
+    min-height: 42px;
+    padding: 9px 12px;
+
+    color: #343a40;
+    background: #fff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+body:has(.sidebar-sigmud) .form-control:focus {
+    border-color: #99002e;
+    box-shadow: 0 0 0 3px rgba(153,0,46,.10);
+}
+
+body:has(.sidebar-sigmud) .form-select {
+    min-height: 42px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   24. CONTENIDO DE TODOS LOS MÓDULOS
+========================================================== */
+
+body:has(.sidebar-sigmud) main,
+body:has(.sidebar-sigmud) .container,
+body:has(.sidebar-sigmud) .container-fluid {
+    max-width: 1500px;
+}
+
+body:has(.sidebar-sigmud) .container {
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+body:has(.sidebar-sigmud) h1,
+body:has(.sidebar-sigmud) h2,
+body:has(.sidebar-sigmud) h3,
+body:has(.sidebar-sigmud) h4,
+body:has(.sidebar-sigmud) h5 {
+    color: #293747;
+    font-weight: 700;
+}
+
+/* Botones */
+
+body:has(.sidebar-sigmud) .btn-primary {
+    color: #fff;
+    background: #99002e;
+    border-color: #99002e;
+    border-radius: 7px;
+}
+
+body:has(.sidebar-sigmud) .btn-primary:hover {
+    background: #760022;
+    border-color: #760022;
+}
+
+/* Tablas */
+
+body:has(.sidebar-sigmud) .table {
+    background: #fff;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+body:has(.sidebar-sigmud) .table thead th {
+    color: #fff;
+    background: #343a40;
+    border-color: #343a40;
+    font-size: 13px;
+}
+
+body:has(.sidebar-sigmud) .table tbody td {
+    font-size: 14px;
+}
+
+/* Tarjetas y filtros */
+
+body:has(.sidebar-sigmud) .card:not(.dashboard-card) {
+    border: 1px solid #e1e5eb;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+
+/* ==========================================================
+   25. MERCADO - MENÚ DESPLEGABLE
+========================================================== */
+
+.sidebar-toggle {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus {
+    color: #fff;
+    background: rgba(255,255,255,.14);
+}
+
+.sidebar-chevron {
+    margin-left: auto;
+    width: auto !important;
+    font-size: 12px !important;
+    transition: transform .25s ease;
+}
+
+.sidebar-toggle[aria-expanded="true"] .sidebar-chevron {
+    transform: rotate(180deg);
+}
+
+#submenuMercado {
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+.sidebar-sublink {
+    margin-left: 5px;
+}
+
+
+/* ==========================================================
+   26. FONDO INSTITUCIONAL PARA TODOS LOS MÓDULOS
+========================================================== */
+
+/*
+   La imagen se aplica a todas las páginas que contienen
+   la barra lateral SIGMUD.
+*/
+
+body:has(.sidebar-sigmud)::before {
+    content: "";
+    position: fixed;
+
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: var(--sidebar-width);
+
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(244,246,249,.56),
+            rgba(244,246,249,.62)
+        ),
+        url("../img/fondo-login.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* Imagen más visible */
+    filter: blur(1px);
+
+    transform: scale(1.01);
+}
+
+/* Fondo claro y ligeramente transparente en los módulos */
+
+body:has(.sidebar-sigmud) .dashboard-header {
+    background: rgba(255,255,255,.76);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 14px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+/* Tarjetas generales */
+
+body:has(.sidebar-sigmud) .card:not(.dashboard-card) {
+    background: rgba(255,255,255,.91);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+/* Paneles de filtros */
+
+body:has(.sidebar-sigmud) .shadow-sm {
+    background-color: rgba(255,255,255,.88);
+}
+
+/* Tablas legibles sobre el fondo */
+
+body:has(.sidebar-sigmud) .table {
+    background-color: rgba(255,255,255,.96);
+}
+
+/* Dashboard */
+
+body:has(.sidebar-sigmud) .dashboard-container {
+    position: relative;
+    z-index: 1;
+}
+
+body:has(.sidebar-sigmud) .dashboard-card {
+    box-shadow: 0 8px 24px rgba(0,0,0,.13);
+}
+
+body:has(.sidebar-sigmud) .dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0,0,0,.18);
+}
+
+body:has(.sidebar-sigmud) .dashboard-footer {
+    background: rgba(255,255,255,.70);
+    border-radius: 10px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* ==========================================================
+   27. RESPONSIVE - TABLETS
+========================================================== */
+
+@media (max-width: 768px) {
+
+    :root {
+        --sidebar-width: 205px;
+    }
+
+    .sidebar-sigmud {
+        padding: 17px 10px;
+    }
+
+    .sidebar-brand {
+        font-size: 19px;
+    }
+
+    .sidebar-link,
+    .sidebar-group-title {
+        font-size: 13px;
+    }
+
+    body:has(.sidebar-sigmud) .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    body:has(.sidebar-sigmud)::before {
+        left: var(--sidebar-width);
+        background-position: center;
+    }
+
+    .dashboard-header {
+        padding: 16px;
+    }
+}
+
+
+/* ==========================================================
+   28. RESPONSIVE - CELULARES
+========================================================== */
+
+@media (max-width: 480px) {
+
+    :root {
+        --sidebar-width: 175px;
+    }
+
+    .sidebar-sigmud {
+        padding: 14px 8px;
+    }
+
+    .sidebar-brand {
+        gap: 8px;
+        padding-left: 5px;
+        font-size: 17px;
+    }
+
+    .sidebar-brand img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sidebar-link,
+    .sidebar-group-title {
+        gap: 8px;
+        padding-left: 8px;
+        font-size: 12px;
+    }
+
+    .sidebar-sublink {
+        padding-left: 30px;
+        font-size: 12px;
+    }
+
+    .sidebar-user-info strong {
+        font-size: 10px;
+    }
+
+    body:has(.sidebar-sigmud)::before {
+        left: var(--sidebar-width);
+    }
+}

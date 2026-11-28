@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/sigmud">
+  <!--
+        SIGMUD – DataSource JNDI (pool de conexiones Tomcat DBCP)
+        IMPORTANTE: Cambiar username y password según su MySQL local.
+        Base de datos: sigmud_db  |  Puerto: 3306
+    -->
+  <Resource 
+      auth="Container"
+      driverClassName="com.mysql.cj.jdbc.Driver" 
+      maxIdle="10" 
+      maxTotal="20"
+      maxWaitMillis="10000"
+      name="jdbc/sigmudDB"
+      password="root" 
+      testOnBorrow="true" 
+      type="javax.sql.DataSource" 
+      url="jdbc:mysql://localhost:3306/sigmud_db?useSSL=false&amp;serverTimezone=America/Lima&amp;characterEncoding=utf8mb4&amp;allowPublicKeyRetrieval=true" 
+      username="root"
+      validationQuery="SELECT 1"/>
+</Context>
